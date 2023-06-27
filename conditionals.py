@@ -88,27 +88,49 @@ import math
 #     print("Level Value not suitable")
 
 
-# Task 4
-choice = int(input("""
-Pythagoras' Calculator
-1. Find the length of A given B and C
-2. Find the length of B given A and C
-3. Find the length of C given A and B
-"""))
+# # Task 4
+# choice = int(input("""
+# Pythagoras' Calculator
+# 1. Find the length of A given B and C
+# 2. Find the length of B given A and C
+# 3. Find the length of C given A and B
+# """))
 
-if choice < 1 or choice > 3:
-    print("Invalid choice")
-elif choice == 1:
-    c = int(input("C: "))
-    b = int(input("B: "))
-    print(f"A = {math.sqrt(c**2 + b**2)}")
-elif choice == 2:
-    a = int(input("A: "))
-    c = int(input("C: "))
-    print(f"B = {math.sqrt(c**2 + a**2)}")
-elif choice == 3:
-    a = int(input("A: "))
-    b = int(input("B: "))
-    print(f"C = {math.sqrt(a**2 + b**2)}")
+# if choice < 1 or choice > 3:
+#     print("Invalid choice")
+# elif choice == 1:
+#     c = int(input("C: "))
+#     b = int(input("B: "))
+#     print(f"A = {math.sqrt(c**2 + b**2)}")
+# elif choice == 2:
+#     a = int(input("A: "))
+#     c = int(input("C: "))
+#     print(f"B = {math.sqrt(c**2 + a**2)}")
+# elif choice == 3:
+#     a = int(input("A: "))
+#     b = int(input("B: "))
+#     print(f"C = {math.sqrt(a**2 + b**2)}")
+# else:
+#     print("Something went wrong")
+
+
+# extra-if task
+a = int(input("A: "))
+b = int(input("B: "))
+c = int(input("C: "))
+
+max = 0
+
+if a > b and a > c:
+    max = a
+elif b > a and b > c:
+    max = b
 else:
-    print("Something went wrong")
+    max = c
+
+if (max % 2) != 0 and (max % 3) == 0:
+    print("Odd, multiple of 3")
+elif (max % 2) != 0:
+    print("Odd")
+else:
+    print("Even")
