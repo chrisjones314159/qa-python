@@ -119,7 +119,7 @@ a = int(input("A: "))
 b = int(input("B: "))
 c = int(input("C: "))
 
-max = 0
+max = None
 
 if a > b and a > c:
     max = a
