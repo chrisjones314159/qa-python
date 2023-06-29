@@ -114,23 +114,23 @@ import math
 #     print("Something went wrong")
 
 
-# extra-if task
-a = int(input("A: "))
-b = int(input("B: "))
-c = int(input("C: "))
+# # extra-if task
+# a = int(input("A: "))
+# b = int(input("B: "))
+# c = int(input("C: "))
 
-max = None
+# max = None
 
-if a > b and a > c:
-    max = a
-elif b > a and b > c:
-    max = b
-else:
-    max = c
+# if a > b and a > c:
+#     max = a
+# elif b > a and b > c:
+#     max = b
+# else:
+#     max = c
 
-if (max % 2) != 0 and (max % 3) == 0:
-    print("Odd, multiple of 3")
-elif (max % 2) != 0:
-    print("Odd")
-else:
-    print("Even")
+# if (max % 2) != 0 and (max % 3) == 0:
+#     print("Odd, multiple of 3")
+# elif (max % 2) != 0:
+#     print("Odd")
+# else:
+#     print("Even")
