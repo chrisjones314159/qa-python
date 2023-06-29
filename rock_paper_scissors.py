@@ -1,54 +1,33 @@
 import random
 options = {1: "rock", 2: "paper", 3: "scissors"}
 scores = {"playerW": 0, "compW": 0, "plays": 0, "draw": 0}
-play = True
+
+def output(choice, compChoice, outcome):
+    return(f"""Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']} 
+        You: {options[choice]}, Computer: {options[compChoice]} {outcome}""")
 
 def game(choice):
     compChoice = random.randint(1, 3)
+    outcome = None
     if choice == compChoice:
         scores["plays"] = scores["plays"] + 1
         scores["draw"] = scores["draw"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Draw")
+        outcome = "Draw"
+        return(output(choice, compChoice, outcome))
 
-    elif choice == 1 and compChoice == 3:
+    elif choice == 1 and compChoice == 3 or choice == 2 and compChoice == 1 or choice == 3 and compChoice == 2:
         scores["plays"] = scores["plays"] + 1
         scores["playerW"] = scores["playerW"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Win")
+        outcome = "Win"
+        return(output(choice, compChoice, outcome))
 
-    elif choice == 2 and compChoice == 1:
-        scores["plays"] = scores["plays"] + 1
-        scores["playerW"] = scores["playerW"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Win")
-
-    elif choice == 3 and compChoice == 2:
-        scores["plays"] = scores["plays"] + 1
-        scores["playerW"] = scores["playerW"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Win")
-
-    elif choice == 1 and compChoice == 2:
+    elif choice == 1 and compChoice == 2 or choice == 2 and compChoice == 3 or choice == 3 and compChoice == 1:
         scores["plays"] = scores["plays"] + 1
         scores["compW"] = scores["compW"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Lose")
+        outcome = "Lose"
+        return(output(choice, compChoice, outcome))
 
-    elif choice == 2 and compChoice == 3:
-        scores["plays"] = scores["plays"] + 1
-        scores["compW"] = scores["compW"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Lose")
-
-    elif choice == 3 and compChoice == 1:
-        scores["plays"] = scores["plays"] + 1
-        scores["compW"] = scores["compW"] + 1
-        print(f"Games played: {scores['plays']}, Player Wins: {scores['playerW']}, Computer wins: {scores['compW']}, Draws: {scores['draw']}")
-        print(f"You: {options[choice]}, Computer: {options[compChoice]} Lose")
-
-
-while play:
+while True:
     choice = int(input("""
     \nPlease select an option:
     1) Rock
@@ -57,7 +36,7 @@ while play:
     4) Quit the game
                        """))
     if choice == 1 or choice == 2 or choice == 3:
-        game(choice)
+        print(game(choice))
     elif choice == 4:
         break
     else:
