@@ -21,7 +21,7 @@ def game(choice):
         outcome = "Win"
         return(output(choice, compChoice, outcome))
 
-    elif choice == 1 and compChoice == 2 or choice == 2 and compChoice == 3 or choice == 3 and compChoice == 1:
+    else:
         scores["plays"] = scores["plays"] + 1
         scores["compW"] = scores["compW"] + 1
         outcome = "Lose"
